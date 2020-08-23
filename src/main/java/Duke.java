@@ -3,6 +3,10 @@ public class Duke {
         System.out.println("__________________________________________");
     }
 
+    public static void greet() {
+        linePrinter();
+        System.out.println("Hello! I'm Duke" + "\nWhat can I do for you?");
+    }
     public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -10,6 +14,6 @@ public class Duke {
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
         System.out.println("Hello from\n" + logo);
-        linePrinter();
+        greet();
     }
 }
