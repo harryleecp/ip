@@ -12,6 +12,11 @@ public class Duke {
         System.out.println(Underscores() + "\nBye. Hope to see you again soon!\n" + Underscores());
     }
 
+    public static void listPrinter(String[] items, int index) {
+        for (int i = 0; i < index; i++) {
+            System.out.println(i+1 + ". " + items[i]);
+        }
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String logo = " _______    __   ___      ___  _______\n"
@@ -22,16 +27,24 @@ public class Duke {
                 + "|____| /___|  |___\\  \\__/     |_______|\n";
         System.out.println("Hello from\n" + logo);
         greet();
-        String echo = "";
+        String[] texts = new String[100];
+        int index = 0;
         while (true) {
+            String text = "";
             System.out.println(Underscores());
-            echo = input.nextLine();
-            if (echo.equals("bye")) {
+            text = input.nextLine();
+            if (text.equals("bye")) {
                 break;
             }
-            else {
+            else if (text.equals("list")) {
                 System.out.println(Underscores());
-                System.out.println(echo);
+                listPrinter(texts, index);
+            }
+            else {
+                texts[index] = text;
+                index++;
+                System.out.println(Underscores());
+                System.out.println("added: " + text);
             }
         }
         farewell();
