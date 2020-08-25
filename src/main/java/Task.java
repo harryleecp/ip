@@ -15,8 +15,7 @@ public class Task {
         String mark = "";
         if (this.isDone == true) {
             mark = "[\u2713]";
-        }
-        else {
+        } else {
             mark = "[\u2718]";
         }
         return mark + " " + this.task;

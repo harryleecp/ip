@@ -19,6 +19,7 @@ public class Duke {
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        String text = "";
         String logo = " _______    __   ___      ___  _______\n"
                 + "|__   __|  /  \\  \\  \\    /  / |   ____|\n"
                 + "   | |    / __ \\  \\  \\  /  /  |  |__\n"
@@ -30,17 +31,14 @@ public class Duke {
         Task[] texts = new Task[100];
         int index = 0;
         while (true) {
-            String text = "";
             System.out.println(Underscores());
             text = input.nextLine();
             if (text.equals("bye")) {
                 break;
-            }
-            else if (text.equals("list")) {
+            } else if (text.equals("list")) {
                 System.out.println(Underscores());
                 listPrinter(texts, index);
-            }
-            else if ((text.indexOf("done") == 0) && (text.split(" ")).length == 2) {
+            } else if ((text.indexOf("done") == 0) && (text.split(" ")).length == 2) {
                 String[] words = text.split(" ");
                 int value = Integer.parseInt(words[1]);
                 if (value <= index) {
@@ -48,8 +46,7 @@ public class Duke {
                     System.out.println(Underscores());
                     System.out.println("Nice! I've marked this as done:\n  " + texts[value-1].taskPrinter());
                 }
-            }
-            else {
+            } else {
                 texts[index] = new Task (text);
                 index++;
                 System.out.println(Underscores());
