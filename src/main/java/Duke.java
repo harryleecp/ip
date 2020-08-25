@@ -12,9 +12,9 @@ public class Duke {
         System.out.println(Underscores() + "\nBye. Hope to see you again soon!\n" + Underscores());
     }
 
-    public static void listPrinter(String[] items, int index) {
+    public static void listPrinter(Task[] items, int index) {
         for (int i = 0; i < index; i++) {
-            System.out.println(i+1 + ". " + items[i]);
+            System.out.println(i+1 + ". " + (items[i]).taskPrinter());
         }
     }
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Duke {
                 + "|____| /___|  |___\\  \\__/     |_______|\n";
         System.out.println("Hello from\n" + logo);
         greet();
-        String[] texts = new String[100];
+        Task[] texts = new Task[100];
         int index = 0;
         while (true) {
             String text = "";
@@ -40,8 +40,17 @@ public class Duke {
                 System.out.println(Underscores());
                 listPrinter(texts, index);
             }
+            else if ((text.indexOf("done") == 0) && (text.split(" ")).length == 2) {
+                String[] words = text.split(" ");
+                int value = Integer.parseInt(words[1]);
+                if (value <= index) {
+                    (texts[value - 1]).setDone();
+                    System.out.println(Underscores());
+                    System.out.println("Nice! I've marked this as done:\n  " + texts[value-1].taskPrinter());
+                }
+            }
             else {
-                texts[index] = text;
+                texts[index] = new Task (text);
                 index++;
                 System.out.println(Underscores());
                 System.out.println("added: " + text);
