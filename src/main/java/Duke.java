@@ -81,25 +81,27 @@ public class Duke {
                     if (textFormat.isValid) {
                         int index = Integer.parseInt(words[1]);
                         markDone(index, texts);
-                        break;
                     }
+                    break;
                 case "event":
                     words = textFormat.checkEvent();
                     if (textFormat.isValid) {
                         texts.add(new Event(words[0], words[1]));
                         addedTask(texts);
-                        break;
                     }
+                    break;
                 case "deadline":
                     words = textFormat.checkDeadline();
                     if (textFormat.isValid) {
                         texts.add(new Deadline(words[0], words[1]));
                         addedTask(texts);
-                        break;
                     }
+                    break;
                 case "todo":
-                    texts.add(new Todo(text));
-                    addedTask(texts);
+                    if (words.length > 1) {
+                        texts.add(new Todo(text));
+                        addedTask(texts);
+                    }
                     break;
                 default:
                     System.out.println("Invalid command or format! Enter 'help' for guidance");
