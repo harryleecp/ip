@@ -1,7 +1,51 @@
 Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+ _______    __   ___      ___  _______
+|__   __|  /  \  \  \    /  / |   ____|
+   | |    / __ \  \  \  /  /  |  |__
+   | |   / |__| \  \  \/  /   |   __|
+ __| |  /   __   \  \    /    |  |____
+|____| /___|  |___\  \__/     |_______|
 
+__________________________________________
+Hello! I'm Jave
+What can I do for you?
+__________________________________________
+Invalid command or format! Enter 'help' for guidance
+__________________________________________
+The following is a list of commands that you can enter:
+1) help - For showing all commands available
+2) list - To display all the tasks in your list
+3) todo - Add a to-do task into your list (Example: todo borrow book)
+4) deadline - Use " /by " to denote deadline (Example: deadline return book /by Sunday)
+5) event - Use " /at " to denote when the event takes place (Example: event meeting /at Mon 2-4pm)
+
+__________________________________________
+Got it. I've added this task:
+  [T][✘] borrow book
+Now you have 1 tasks in the list
+__________________________________________
+Got it. I've added this task:
+  [D][✘] return book(by: Sunday)
+Now you have 2 tasks in the list
+__________________________________________
+Got it. I've added this task:
+  [E][✘] project meeting(at: Mon 2-4pm)
+Now you have 3 tasks in the list
+__________________________________________
+__________________________________________
+1. [T][✘] borrow book
+2. [D][✘] return book(by: Sunday)
+3. [E][✘] project meeting(at: Mon 2-4pm)
+__________________________________________
+__________________________________________
+Nice! I've marked this as done:
+  [E][✓] project meeting(at: Mon 2-4pm)
+__________________________________________
+__________________________________________
+1. [T][✘] borrow book
+2. [D][✘] return book(by: Sunday)
+3. [E][✓] project meeting(at: Mon 2-4pm)
+__________________________________________
+__________________________________________
+Bye. Hope to see you again soon!
+__________________________________________
