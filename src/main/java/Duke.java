@@ -70,7 +70,6 @@ public class Duke {
                 int index = Integer.parseInt(words[1]);
                 markDone(index, texts);
             } else {
-                System.out.println("I'm here");
                 throw new TaskFormatException("\u2639 OOPS!!! The description of done cannot be empty and must be a digit.");
             }
             break;
@@ -133,7 +132,7 @@ public class Duke {
                 try {
                     checkRemainingCases(texts, textFormat, text);
                 } catch (TaskFormatException e) {
-                    System.out.println(e.toString().substring(21) + "\nEnter \"help\" for more info");
+                    System.out.println(e.toString().substring(29) + "\nEnter \"help\" for more info");
                 }
             }
         }
