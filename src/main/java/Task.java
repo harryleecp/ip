@@ -1,6 +1,6 @@
-public class Task {
-    private String task;
-    private boolean isDone;
+public abstract class Task {
+    protected String task;
+    protected boolean isDone;
 
     public Task (String x) {
         this.task = x;
@@ -11,7 +11,7 @@ public class Task {
         this.isDone = true;
     }
 
-    public String taskPrinter() {
+    public String printTask() {
         String mark = "";
         if (this.isDone == true) {
             mark = "[\u2713]";

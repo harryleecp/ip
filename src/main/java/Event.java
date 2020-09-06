@@ -6,7 +6,7 @@ public class Event extends Task{
         this.doAt = doAt;
     }
 
-    public String taskPrinter() {
-        return "[E]" + super.taskPrinter() + "(at: " + doAt + ")";
+    public String printTask() {
+        return "[E]" + super.printTask() + "(at: " + doAt + ")";
     }
 }

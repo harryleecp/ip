@@ -6,7 +6,7 @@ public class Deadline extends Task {
         this.doBy = doBy;
     }
 
-    public String taskPrinter() {
-        return "[D]" + super.taskPrinter() + "(by: " + doBy + ")";
+    public String printTask() {
+        return "[D]" + super.printTask() + "(by: " + doBy + ")";
     }
 }
