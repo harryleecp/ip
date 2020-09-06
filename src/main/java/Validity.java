@@ -14,10 +14,9 @@ public class Validity {
         }
         try {
             int index = Integer.parseInt(words[1]);
-        } catch(NumberFormatException e) {
+        } catch(NumberFormatException | ArrayIndexOutOfBoundsException e) {
             isValid = false;
         }
-
         return words;
     }
 
@@ -29,6 +28,9 @@ public class Validity {
             isValid = false;
         } else {
             words = description.split(" /by ");
+            if (words.length <= 1) {
+                isValid = false;
+            }
         }
 
         return words;
@@ -42,6 +44,9 @@ public class Validity {
             isValid = false;
         } else {
             words = description.split(" /at ");
+            if (words.length <= 1) {
+                isValid = false;
+            }
         }
 
         return words;
