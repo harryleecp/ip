@@ -20,7 +20,7 @@ __________________________________________
 Enter "help" for more info
 __________________________________________
 Got it. I've added this task:
-  [T][?] anything
+  [T][✘] anything
 Now you have 1 tasks in the list
 __________________________________________
 The following is a list of commands that you can enter:
@@ -32,32 +32,32 @@ The following is a list of commands that you can enter:
 6) bye - To exit from the program
 __________________________________________
 Got it. I've added this task:
-  [D][?] return book(by: Sunday)
+  [D][✘] return book(by: Sunday)
 Now you have 2 tasks in the list
 __________________________________________
 ? OOPS!!! The event description format is wrong.
 Enter "help" for more info
 __________________________________________
 Got it. I've added this task:
-  [E][?] school project(at: Monday 12pm)
+  [E][✘] school project(at: Monday 12pm)
 Now you have 3 tasks in the list
 __________________________________________
 __________________________________________
-1. [T][?] anything
-2. [D][?] return book(by: Sunday)
-3. [E][?] school project(at: Monday 12pm)
+1. [T][✘] anything
+2. [D][✘] return book(by: Sunday)
+3. [E][✘] school project(at: Monday 12pm)
 __________________________________________
 __________________________________________
 Nice! I've marked this as done:
-  [T][?] anything
+  [T][✓] anything
 __________________________________________
 ? OOPS!!! The description of done cannot be empty and must be a digit.
 Enter "help" for more info
 __________________________________________
 __________________________________________
-1. [T][?] anything
-2. [D][?] return book(by: Sunday)
-3. [E][?] school project(at: Monday 12pm)
+1. [T][✓] anything
+2. [D][✘] return book(by: Sunday)
+3. [E][✘] school project(at: Monday 12pm)
 __________________________________________
 __________________________________________
 Bye. Hope to see you again soon!
