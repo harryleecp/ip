@@ -1,9 +1,13 @@
-not sure
-help
-todo borrow book
-deadline return book /by Sunday
-event project meeting /at Mon 2-4pm
+anything
 list
-done 3
+todo
+todo anything
+help
+deadline return book /by Sunday
+event school project /at
+event school project /at Monday 12pm
+list
+done 1
+done
 list
 bye

@@ -18,7 +18,8 @@ if  ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Duke.jav
     ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Deadline.java ||
     ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Event.java ||
     ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Validity.java ||
-    ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Todo.java
+    ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/Todo.java ||
+    ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/TaskFormatException.java
 then
     echo "********** BUILD FAILURE **********"
     exit 1

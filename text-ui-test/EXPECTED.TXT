@@ -10,7 +10,18 @@ __________________________________________
 Hello! I'm Jave
 What can I do for you?
 __________________________________________
-Invalid command or format! Enter 'help' for guidance
+? OOPS!!! I'm sorry, but I don't know what that means :-(
+Enter "help" for more info
+__________________________________________
+__________________________________________
+There is nothing in your list currently
+__________________________________________
+? OOPS!!! The description of a todo cannot be empty.
+Enter "help" for more info
+__________________________________________
+Got it. I've added this task:
+  [T][?] anything
+Now you have 1 tasks in the list
 __________________________________________
 The following is a list of commands that you can enter:
 1) help - For showing all commands available
@@ -18,33 +29,36 @@ The following is a list of commands that you can enter:
 3) todo - Add a to-do task into your list (Example: todo borrow book)
 4) deadline - Use " /by " to denote deadline (Example: deadline return book /by Sunday)
 5) event - Use " /at " to denote when the event takes place (Example: event meeting /at Mon 2-4pm)
-
+6) bye - To exit from the program
 __________________________________________
 Got it. I've added this task:
-  [T][✘] borrow book
-Now you have 1 tasks in the list
-__________________________________________
-Got it. I've added this task:
-  [D][✘] return book(by: Sunday)
+  [D][?] return book(by: Sunday)
 Now you have 2 tasks in the list
 __________________________________________
+? OOPS!!! The event description format is wrong.
+Enter "help" for more info
+__________________________________________
 Got it. I've added this task:
-  [E][✘] project meeting(at: Mon 2-4pm)
+  [E][?] school project(at: Monday 12pm)
 Now you have 3 tasks in the list
 __________________________________________
 __________________________________________
-1. [T][✘] borrow book
-2. [D][✘] return book(by: Sunday)
-3. [E][✘] project meeting(at: Mon 2-4pm)
+1. [T][?] anything
+2. [D][?] return book(by: Sunday)
+3. [E][?] school project(at: Monday 12pm)
 __________________________________________
 __________________________________________
 Nice! I've marked this as done:
-  [E][✓] project meeting(at: Mon 2-4pm)
+  [T][?] anything
+__________________________________________
+I'm here
+? OOPS!!! The description of done cannot be empty and must be a digit.
+Enter "help" for more info
 __________________________________________
 __________________________________________
-1. [T][✘] borrow book
-2. [D][✘] return book(by: Sunday)
-3. [E][✓] project meeting(at: Mon 2-4pm)
+1. [T][?] anything
+2. [D][?] return book(by: Sunday)
+3. [E][?] school project(at: Monday 12pm)
 __________________________________________
 __________________________________________
 Bye. Hope to see you again soon!
