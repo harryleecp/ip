@@ -1,6 +1,8 @@
+package formats;
+
 public class Validity {
     private String description;
-    protected boolean isValid;
+    public boolean isValid;
 
     public Validity(String description) {
         this.description = description;

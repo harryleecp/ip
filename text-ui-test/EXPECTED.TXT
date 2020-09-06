@@ -51,7 +51,6 @@ __________________________________________
 Nice! I've marked this as done:
   [T][?] anything
 __________________________________________
-I'm here
 ? OOPS!!! The description of done cannot be empty and must be a digit.
 Enter "help" for more info
 __________________________________________
