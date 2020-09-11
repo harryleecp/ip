@@ -44,10 +44,20 @@ public class Duke {
     }
 
     public static void markDone(int index, ArrayList<Task> texts) {
-        if ((index <= texts.size() + 1) && (index > 0)) {
+        if ((index <= texts.size()) && (index > 0)) {
             (texts.get(index - 1)).setDone();
             System.out.println(printUnderscores());
             System.out.println("Nice! I've marked this as done:\n  " + texts.get(index - 1).printTask());
+        } else {
+            System.out.println("Invalid index!");
+        }
+    }
+
+    public static void deleteTask(int index, ArrayList<Task> texts) {
+        if ((index <= texts.size()) && (index > 0)) {
+            System.out.println("Noted. I've removed this task:\n  " + texts.get(index - 1).printTask());
+            texts.remove(index - 1);
+            System.out.println("Now you have " + texts.size() + " tasks in the list.");
         } else {
             System.out.println("Invalid index!");
         }
@@ -71,6 +81,15 @@ public class Duke {
                 markDone(index, texts);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of done cannot be empty and must be a digit.");
+            }
+            break;
+        case "delete":
+            words = textFormat.checkDelete();
+            if (textFormat.isValid) {
+                int index = Integer.parseInt(words[1]);
+                deleteTask(index, texts);
+            } else {
+                throw new TaskFormatException("\u2639 OOPS!!! The description of delete cannot be empty and must be a digit.");
             }
             break;
         case "event":

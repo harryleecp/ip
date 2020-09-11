@@ -10,13 +10,13 @@ __________________________________________
 Hello! I'm Jave
 What can I do for you?
 __________________________________________
-? OOPS!!! I'm sorry, but I don't know what that means :-(
+☹ OOPS!!! I'm sorry, but I don't know what that means :-(
 Enter "help" for more info
 __________________________________________
 __________________________________________
 There is nothing in your list currently
 __________________________________________
-? OOPS!!! The description of a todo cannot be empty.
+☹ OOPS!!! The description of a todo cannot be empty.
 Enter "help" for more info
 __________________________________________
 Got it. I've added this task:
@@ -35,7 +35,7 @@ Got it. I've added this task:
   [D][✘] return book(by: Sunday)
 Now you have 2 tasks in the list
 __________________________________________
-? OOPS!!! The event description format is wrong.
+☹ OOPS!!! The event description format is wrong.
 Enter "help" for more info
 __________________________________________
 Got it. I've added this task:
@@ -51,13 +51,20 @@ __________________________________________
 Nice! I've marked this as done:
   [T][✓] anything
 __________________________________________
-? OOPS!!! The description of done cannot be empty and must be a digit.
+☹ OOPS!!! The description of done cannot be empty and must be a digit.
 Enter "help" for more info
 __________________________________________
 __________________________________________
 1. [T][✓] anything
 2. [D][✘] return book(by: Sunday)
 3. [E][✘] school project(at: Monday 12pm)
+__________________________________________
+Noted. I've removed this task:
+  [T][✓] anything
+Now you have 2 tasks in the list.
+__________________________________________
+☹ OOPS!!! The description of delete cannot be empty and must be a digit.
+Enter "help" for more info
 __________________________________________
 __________________________________________
 Bye. Hope to see you again soon!

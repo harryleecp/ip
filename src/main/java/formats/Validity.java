@@ -53,4 +53,17 @@ public class Validity {
 
         return words;
     }
+
+    public String[] checkDelete() {
+        String[] words = description.split(" ");
+        if (!(words[0].equals("delete")) || (words.length != 2)) {
+            isValid = false;
+        }
+        try {
+            int index = Integer.parseInt(words[1]);
+        } catch(NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            isValid = false;
+        }
+        return words;
+    }
 }
