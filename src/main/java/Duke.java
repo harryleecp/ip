@@ -1,3 +1,4 @@
+import formats.LoadAndSave;
 import formats.TaskFormatException;
 import formats.Validity;
 import tasks.Deadline;
@@ -5,8 +6,11 @@ import tasks.Event;
 import tasks.Task;
 import tasks.Todo;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Duke {
     public static String printUnderscores() {
         return "__________________________________________";
@@ -134,6 +138,13 @@ public class Duke {
         System.out.println("Hello from\n" + logo);
         printGreetingMessage();
         ArrayList<Task> texts = new ArrayList<>();
+        LoadAndSave textFile = new LoadAndSave("tasklist.txt");
+        try {
+            System.out.println("Reading from file.........");
+            textFile.loadTextFile(texts);
+        } catch (FileNotFoundException e) {
+            System.out.println("File tasklist.txt is not found, creating new file.......");
+        }
 
         while (true) {
             System.out.println(printUnderscores());
@@ -141,6 +152,12 @@ public class Duke {
             Validity textFormat = new Validity(text);
 
             if (text.equals("bye")) {
+                System.out.println("Saving to file.........");
+                try {
+                    textFile.saveTextFile(texts);
+                } catch (IOException e) {
+                    System.out.println("OOPS!!! Something went wrong when saving the file!");
+                }
                 break;
             } else if (text.equals("list")) {
                 System.out.println(printUnderscores());

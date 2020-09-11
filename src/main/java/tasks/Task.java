@@ -1,8 +1,11 @@
 package tasks;
 
 public abstract class Task {
-    protected String task;
-    protected boolean isDone;
+    public String task;
+    public boolean isDone;
+
+    public abstract String getTaskType();
+    public abstract String getDueDate();
 
     public Task (String x) {
         this.task = x;

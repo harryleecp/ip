@@ -1,14 +1,23 @@
 package tasks;
 
 public class Event extends Task{
-    private String doAt;
+
+    public String dueDate;
 
     public Event(String description, String doAt) {
         super(description.substring(6));
-        this.doAt = doAt;
+        dueDate = doAt;
+    }
+
+    public String getTaskType() {
+        return "E";
+    }
+
+    public String getDueDate() {
+        return dueDate;
     }
 
     public String printTask() {
-        return "[E]" + super.printTask() + "(at: " + doAt + ")";
+        return "[E]" + super.printTask() + "(at: " + dueDate + ")";
     }
 }

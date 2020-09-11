@@ -1,14 +1,21 @@
 package tasks;
 
 public class Deadline extends Task {
-    private String doBy;
+    public String dueDate;
 
     public Deadline(String description, String doBy) {
         super(description.substring(9));
-        this.doBy = doBy;
+        dueDate = doBy;
     }
 
+    public String getTaskType() {
+        return "D";
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
     public String printTask() {
-        return "[D]" + super.printTask() + "(by: " + doBy + ")";
+        return "[D]" + super.printTask() + "(by: " + dueDate + ")";
     }
 }
