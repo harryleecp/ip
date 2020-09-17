@@ -1,4 +1,4 @@
-package formats;
+package userInterface;
 
 import tasks.Task;
 import tasks.Deadline;
@@ -12,10 +12,10 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class LoadAndSave {
+public class Storage {
     private String filename;
 
-    public LoadAndSave (String filename) {
+    public Storage(String filename) {
         this.filename = filename;
     }
 

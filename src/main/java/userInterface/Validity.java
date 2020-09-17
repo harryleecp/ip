@@ -1,4 +1,4 @@
-package formats;
+package userInterface;
 
 public class Validity {
     private String description;

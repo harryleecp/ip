@@ -12,8 +12,10 @@ javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\tasks\Task.jav
 javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\tasks\Deadline.java
 javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\tasks\Event.java
 javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\tasks\Todo.java
-javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\formats\Validity.java
-javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\formats\TaskFormatException.java
+javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\userInterface\Storage.java
+javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\userInterface\Ui.java
+javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\userInterface\Validity.java
+javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\userInterface\TaskFormatException.java
 
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE **********
