@@ -1,4 +1,4 @@
-package userInterface;
+package formats;
 
 public class Validity {
     private String description;
@@ -65,5 +65,12 @@ public class Validity {
             isValid = false;
         }
         return words;
+    }
+
+    public void checkPrintByDate() {
+        String[] words = description.split(" ");
+        if (words.length == 1) {
+            isValid = false;
+        }
     }
 }

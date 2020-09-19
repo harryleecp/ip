@@ -12,6 +12,9 @@ public abstract class Task {
         this.isDone = false;
     }
 
+    public String getTask() {
+        return task;
+    }
     public void setDone () {
         this.isDone = true;
     }
