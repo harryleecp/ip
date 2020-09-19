@@ -67,6 +67,13 @@ public class Validity {
         return words;
     }
 
+    public void checkFind() {
+        String[] words = description.split(" ");
+        if (words.length == 1) {
+            isValid = false;
+        }
+    }
+
     public void checkPrintByDate() {
         String[] words = description.split(" ");
         if (words.length == 1) {

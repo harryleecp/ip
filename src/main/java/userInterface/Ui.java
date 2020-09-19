@@ -54,6 +54,15 @@ public class Ui {
         }
     }
 
+    public ArrayList<Task> findTasks(ArrayList<Task> tasks, String keywords) {
+        ArrayList<Task> filteredTasks;
+        filteredTasks = (ArrayList<Task>) tasks.stream()
+                .filter((t) -> t instanceof Deadline || t instanceof Event)
+                .filter((t) -> t.printTask().contains(keywords))
+                .collect(Collectors.toList());
+        return filteredTasks;
+    }
+
     public void printByDate(ArrayList<Task> tasks, String description) {
         ArrayList<Task> filteredTasks;
         filteredTasks = (ArrayList<Task>) tasks.stream()
@@ -105,6 +114,14 @@ public class Ui {
                 markDone(index, tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of done cannot be empty and must be a digit.");
+            }
+            break;
+        case "find":
+            taskFormat.checkFind();
+            if (taskFormat.isValid) {
+                printList(findTasks(tasks, task.substring(5)));
+            } else {
+                throw new TaskFormatException("\u2639 OOPS!!! The description of find cannot be empty.");
             }
             break;
         case "printbydate":
