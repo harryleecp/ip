@@ -1,9 +1,9 @@
 import tasks.Task;
 
 import userInterface.Storage;
-import userInterface.TaskFormatException;
+import formats.TaskFormatException;
 import userInterface.Ui;
-import userInterface.Validity;
+import formats.Validity;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
