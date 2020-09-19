@@ -1,11 +1,14 @@
 package userInterface;
 
+import formats.TaskFormatException;
+import formats.Validity;
 import tasks.Deadline;
 import tasks.Event;
 import tasks.Task;
 import tasks.Todo;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Ui {
     public String printUnderscores() {
@@ -17,9 +20,10 @@ public class Ui {
                 + "1) help - For showing all commands available\n"
                 + "2) list - To display all the tasks in your list\n"
                 + "3) todo - Add a to-do task into your list (Example: todo borrow book)\n"
-                + "4) deadline - Use \" /by \" to denote deadline (Example: deadline return book /by Sunday)\n"
-                + "5) event - Use \" /at \" to denote when the event takes place (Example: event meeting /at Mon 2-4pm)\n"
-                + "6) bye - To exit from the program";
+                + "4) deadline - Use \" /by \" to denote due date and time (Example: deadline return book /by 19/09/2020 1500)\n"
+                + "5) event - Use \" /at \" to denote when it takes place (Example: event meeting /at 20/09/2020 0900)\n"
+                + "6) printbydate - Prints deadlines and events according to date\n"
+                + "7) bye - To exit from the program";
         System.out.println(instructions);
     }
 
@@ -50,81 +54,98 @@ public class Ui {
         }
     }
 
+    public void printByDate(ArrayList<Task> tasks, String description) {
+        ArrayList<Task> filteredTasks;
+        filteredTasks = (ArrayList<Task>) tasks.stream()
+            .filter((t) -> t instanceof Deadline | t instanceof Event)
+            .filter((t) -> t.getDueDate().contains(description))
+            .collect(Collectors.toList());
+        printList(filteredTasks);
+    }
+
     public void showLoadingError() {
         System.out.println("File tasklist.txt is not found, creating new file.......");
     }
 
-    public void markDone(int index, ArrayList<Task> texts) {
-        if ((index <= texts.size()) && (index > 0)) {
-            (texts.get(index - 1)).setDone();
+    public void markDone(int index, ArrayList<Task> tasks) {
+        if ((index <= tasks.size()) && (index > 0)) {
+            (tasks.get(index - 1)).setDone();
             System.out.println(printUnderscores());
-            System.out.println("Nice! I've marked this as done:\n  " + texts.get(index - 1).printTask());
+            System.out.println("Nice! I've marked this as done:\n  " + tasks.get(index - 1).printTask());
         } else {
             System.out.println("Invalid index!");
         }
     }
 
-    public void deleteTask(int index, ArrayList<Task> texts) {
-        if ((index <= texts.size()) && (index > 0)) {
-            System.out.println("Noted. I've removed this task:\n  " + texts.get(index - 1).printTask());
-            texts.remove(index - 1);
-            System.out.println("Now you have " + texts.size() + " tasks in the list.");
+    public void deleteTask(int index, ArrayList<Task> tasks) {
+        if ((index <= tasks.size()) && (index > 0)) {
+            System.out.println("Noted. I've removed this task:\n  " + tasks.get(index - 1).printTask());
+            tasks.remove(index - 1);
+            System.out.println("Now you have " + tasks.size() + " tasks in the list.");
         } else {
             System.out.println("Invalid index!");
         }
     }
 
-    public void addedTask(ArrayList<Task> texts) {
+    public void addedTask(ArrayList<Task> tasks) {
         System.out.println("Got it. I've added this task:\n  "
-                + texts.get(texts.size()-1).printTask()
+                + tasks.get(tasks.size()-1).printTask()
                 + "\nNow you have "
-                + texts.size()
+                + tasks.size()
                 + " tasks in the list");
     }
 
-    public void checkRemainingCases(ArrayList<Task> texts, Validity textFormat, String text) throws TaskFormatException {
-        String[] words = text.split(" ");
-        switch (words[0]) {
+    public void checkRemainingCases(ArrayList<Task> tasks, Validity taskFormat, String task) throws TaskFormatException {
+        String[] words = task.split(" ");
+        switch (words[0].toLowerCase()) {
         case "done":
-            words = textFormat.checkDone();
-            if (textFormat.isValid) {
+            words = taskFormat.checkDone();
+            if (taskFormat.isValid) {
                 int index = Integer.parseInt(words[1]);
-                markDone(index, texts);
+                markDone(index, tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of done cannot be empty and must be a digit.");
             }
             break;
+        case "printbydate":
+            taskFormat.checkPrintByDate();
+            if (taskFormat.isValid) {
+                printByDate(tasks, task.substring(12));
+            } else {
+                throw new TaskFormatException("\u2639 OOPS!!! The description of printbydate cannot be empty");
+            }
+            break;
         case "delete":
-            words = textFormat.checkDelete();
-            if (textFormat.isValid) {
+            words = taskFormat.checkDelete();
+            if (taskFormat.isValid) {
                 int index = Integer.parseInt(words[1]);
-                deleteTask(index, texts);
+                deleteTask(index, tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of delete cannot be empty and must be a digit.");
             }
             break;
         case "event":
-            words = textFormat.checkEvent();
-            if (textFormat.isValid) {
-                texts.add(new Event(words[0], words[1]));
-                addedTask(texts);
+            words = taskFormat.checkEvent();
+            if (taskFormat.isValid) {
+                tasks.add(new Event(words[0], words[1]));
+                addedTask(tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The event description format is wrong.");
             }
             break;
         case "deadline":
-            words = textFormat.checkDeadline();
-            if (textFormat.isValid) {
-                texts.add(new Deadline(words[0], words[1]));
-                addedTask(texts);
+            words = taskFormat.checkDeadline();
+            if (taskFormat.isValid) {
+                tasks.add(new Deadline(words[0], words[1]));
+                addedTask(tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The deadline description format is wrong.");
             }
             break;
         case "todo":
             if (words.length > 1) {
-                texts.add(new Todo(text));
-                addedTask(texts);
+                tasks.add(new Todo(task));
+                addedTask(tasks);
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of a todo cannot be empty.");
             }

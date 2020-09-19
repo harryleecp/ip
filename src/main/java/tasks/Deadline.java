@@ -1,11 +1,19 @@
 package tasks;
 
+import formats.DateAndTime;
+
+import java.time.DateTimeException;
+
 public class Deadline extends Task {
     public String dueDate;
 
     public Deadline(String description, String doBy) {
         super(description.substring(9));
-        dueDate = doBy;
+        try {
+            dueDate = DateAndTime.convertDateFormat(doBy);
+        } catch (DateTimeException e) {
+            dueDate = doBy;
+        }
     }
 
     public String getTaskType() {
