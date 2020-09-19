@@ -1,12 +1,21 @@
 package tasks;
 
-public class Event extends Task{
+import formats.DateAndTime;
+
+import java.time.DateTimeException;
+import java.time.format.DateTimeParseException;
+
+public class Event extends Task implements DateAndTime {
 
     public String dueDate;
 
     public Event(String description, String doAt) {
         super(description.substring(6));
-        dueDate = doAt;
+        try {
+            dueDate = DateAndTime.convertDateFormat(doAt);
+        } catch (DateTimeException e) {
+            dueDate = doAt;
+        }
     }
 
     public String getTaskType() {

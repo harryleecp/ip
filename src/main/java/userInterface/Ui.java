@@ -20,9 +20,10 @@ public class Ui {
                 + "1) help - For showing all commands available\n"
                 + "2) list - To display all the tasks in your list\n"
                 + "3) todo - Add a to-do task into your list (Example: todo borrow book)\n"
-                + "4) deadline - Use \" /by \" to denote deadline (Example: deadline return book /by Sunday)\n"
-                + "5) event - Use \" /at \" to denote when the event takes place (Example: event meeting /at Mon 2-4pm)\n"
-                + "6) bye - To exit from the program";
+                + "4) deadline - Use \" /by \" to denote due date and time (Example: deadline return book /by 19/09/2020 1500)\n"
+                + "5) event - Use \" /at \" to denote when it takes place (Example: event meeting /at 20/09/2020 0900)\n"
+                + "6) printbydate - Prints deadlines and events according to date\n"
+                + "7) bye - To exit from the program";
         System.out.println(instructions);
     }
 
@@ -62,6 +63,15 @@ public class Ui {
         return filteredTasks;
     }
 
+    public void printByDate(ArrayList<Task> tasks, String description) {
+        ArrayList<Task> filteredTasks;
+        filteredTasks = (ArrayList<Task>) tasks.stream()
+            .filter((t) -> t instanceof Deadline | t instanceof Event)
+            .filter((t) -> t.getDueDate().contains(description))
+            .collect(Collectors.toList());
+        printList(filteredTasks);
+    }
+
     public void showLoadingError() {
         System.out.println("File tasklist.txt is not found, creating new file.......");
     }
@@ -96,7 +106,7 @@ public class Ui {
 
     public void checkRemainingCases(ArrayList<Task> tasks, Validity taskFormat, String task) throws TaskFormatException {
         String[] words = task.split(" ");
-        switch (words[0]) {
+        switch (words[0].toLowerCase()) {
         case "done":
             words = taskFormat.checkDone();
             if (taskFormat.isValid) {
@@ -112,6 +122,14 @@ public class Ui {
                 printList(findTasks(tasks, task.substring(5)));
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of find cannot be empty.");
+            }
+            break;
+        case "printbydate":
+            taskFormat.checkPrintByDate();
+            if (taskFormat.isValid) {
+                printByDate(tasks, task.substring(12));
+            } else {
+                throw new TaskFormatException("\u2639 OOPS!!! The description of printbydate cannot be empty");
             }
             break;
         case "delete":

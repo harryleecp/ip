@@ -73,4 +73,11 @@ public class Validity {
             isValid = false;
         }
     }
+
+    public void checkPrintByDate() {
+        String[] words = description.split(" ");
+        if (words.length == 1) {
+            isValid = false;
+        }
+    }
 }
