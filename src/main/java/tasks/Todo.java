@@ -1,5 +1,10 @@
 package tasks;
 
+/**
+ * This class is meant for storing tasks without the need for due dates.
+ *
+ * @author Lee Chein Pong Harry
+ */
 public class Todo extends Task{
 
     public Todo(String description) {
@@ -14,6 +19,11 @@ public class Todo extends Task{
         return "";
     }
 
+    /**
+     * Returns full description including object and whether if it is done
+     *
+     * @return Full description of Todo object
+     */
     public String printTask() {
         return "[T]" + super.printTask();
     }

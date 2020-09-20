@@ -15,6 +15,12 @@ public class Duke {
     private static Storage storage;
     private static Ui ui;
 
+    /**
+     * Instantiate Task objects based on description of each line in text file.
+     * If file does not exist, exception will be handled.
+     *
+     * @param filePath Name of text file
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -25,6 +31,10 @@ public class Duke {
         }
     }
 
+    /**
+     * Commands are executed based on the user's choice
+     * Method runs as long as user does not type 'bye' command    *
+     */
     public void run() {
         Scanner input = new Scanner(System.in);
         String text = "";

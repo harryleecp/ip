@@ -3,8 +3,13 @@ package tasks;
 import formats.DateAndTime;
 
 import java.time.DateTimeException;
-import java.time.format.DateTimeParseException;
 
+/**
+ * This class is meant for storing events that are happening on a specific date and time.<p>
+ * The format of date is in "MMM dd yyyy" while the format of time is in "h:ma".
+ *
+ * @author Lee Chein Pong Harry
+ */
 public class Event extends Task implements DateAndTime {
 
     public String dueDate;
@@ -26,6 +31,11 @@ public class Event extends Task implements DateAndTime {
         return dueDate;
     }
 
+    /**
+     * Returns full description including object type, whether if it's done and due date.
+     *
+     * @return Full description of the Event object
+     */
     public String printTask() {
         return "[E]" + super.printTask() + "(at: " + dueDate + ")";
     }

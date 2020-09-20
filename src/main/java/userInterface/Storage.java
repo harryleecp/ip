@@ -12,6 +12,13 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class handles the reading and writing of text file that contains the description of tasks.<p>
+ * Each line contains the task type, whether if it is done, description and due date (if it is a deadline or an event).
+ * This allows users to store their list of tasks using persistent storage.
+ *
+ * @author Lee Chein Pong Harry
+ */
 public class Storage {
     private String filename;
 
@@ -19,13 +26,20 @@ public class Storage {
         this.filename = filename;
     }
 
+    /**
+     * Reads from text file and stores Task objects corresponding to description of each line.
+     * If file is not found, exception will be thrown and no array list will be created.
+     *
+     * @param tasks Task objects stored in the array list.
+     * @throws FileNotFoundException If file does not exist.
+     */
     public void loadTextFile(ArrayList<Task> tasks) throws FileNotFoundException{
         File f = new File(filename);
         Scanner s = new Scanner(f);
         String taskType;
         String isDoneValue;
         String taskDescription;
-        String dateAndTime = "";
+        String dueDate = "";
 
         while (s.hasNextLine()) {
             String line = s.nextLine();
@@ -34,8 +48,10 @@ public class Storage {
             isDoneValue = items[1];
             taskDescription = items[2];
             if (items.length == 4) {
-                dateAndTime = items[3];
+                //Only Deadline and Event objects have due date
+                dueDate = items[3];
             }
+
             switch (taskType) {
             case "T":
                 Todo todo = new Todo("todo " + taskDescription);
@@ -45,14 +61,14 @@ public class Storage {
                 tasks.add(todo);
                 break;
             case "D":
-                Deadline deadline = new Deadline("deadline " + taskDescription, dateAndTime);
+                Deadline deadline = new Deadline("deadline " + taskDescription, dueDate);
                 if (isDoneValue.equals("1")) {
                     deadline.setDone();
                 }
                 tasks.add(deadline);
                 break;
             case "E":
-                Event event = new Event("event " + taskDescription, dateAndTime);
+                Event event = new Event("event " + taskDescription, dueDate);
                 if (isDoneValue.equals("1")) {
                     event.setDone();
                 }
@@ -63,6 +79,13 @@ public class Storage {
         }
     }
 
+    /**
+     * Stores description of each Task object into a text file.
+     * The objects are stored in the same order as the array list.
+     *
+     * @param tasks Task objects stored in the array list.
+     * @throws IOException If file cannot be saved.
+     */
     public void saveTextFile(ArrayList<Task> tasks) throws IOException {
         FileWriter fw = new FileWriter(filename);
         String textToWrite = "";
