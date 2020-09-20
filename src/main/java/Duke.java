@@ -26,6 +26,7 @@ public class Duke {
         storage = new Storage(filePath);
         try {
             storage.loadTextFile(tasks);
+            ui.showLoadingSuccess();
         } catch (FileNotFoundException e) {
             ui.showLoadingError();
         }
@@ -45,7 +46,7 @@ public class Duke {
             text = input.nextLine();
             Validity textFormat = new Validity(text);
 
-            if (text.equals("bye")) {
+            if (text.toLowerCase().equals("bye")) {
                 System.out.println("Saving to file.........");
                 try {
                     storage.saveTextFile(tasks);
@@ -53,10 +54,10 @@ public class Duke {
                     System.out.println("OOPS!!! Something went wrong when saving the file!");
                 }
                 break;
-            } else if (text.equals("list")) {
+            } else if (text.toLowerCase().equals("list")) {
                 System.out.println(ui.printUnderscores());
                 ui.printList(tasks);
-            } else if (text.equals("help")) {
+            } else if (text.toLowerCase().equals("help")) {
                 ui.printHelp();
             } else {
                 try {

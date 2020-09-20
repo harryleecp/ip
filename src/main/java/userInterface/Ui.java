@@ -63,6 +63,10 @@ public class Ui {
         }
     }
 
+    public void showLoadingSuccess() {
+        System.out.println("Found tasklist.txt, contents have been read. ");
+    }
+
     public void showLoadingError() {
         System.out.println("File tasklist.txt is not found, creating new file.......");
     }
