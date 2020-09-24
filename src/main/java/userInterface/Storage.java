@@ -94,6 +94,7 @@ public class Storage {
             if (item.getTaskType().equals("T")) {
                 textToWrite += "T | " + doneIndex + " | " + item.task + "\n";
             } else {
+                //Deadline and Event class objects have due dates
                 textToWrite += item.getTaskType() + " | " + doneIndex + " | "+ item.task + " | " + item.getDueDate() + "\n";
             }
         }
