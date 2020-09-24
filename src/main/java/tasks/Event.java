@@ -12,7 +12,7 @@ import java.time.DateTimeException;
  */
 public class Event extends Task implements DateAndTime {
 
-    public String dueDate;
+    private String dueDate;
 
     public Event(String description, String doAt) {
         super(description.substring(6));

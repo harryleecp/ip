@@ -11,7 +11,7 @@ import java.time.DateTimeException;
  * @author Lee Chein Pong Harry
  */
 public class Deadline extends Task implements DateAndTime{
-    public String dueDate;
+    private String dueDate;
 
     public Deadline(String description, String doBy) {
         super(description.substring(9));

@@ -7,8 +7,8 @@ package tasks;
  * @author Lee Chein Pong Harry
  */
 public abstract class Task {
-    public String task;
-    public boolean isDone;
+    private String task;
+    private boolean isDone;
 
     public abstract String getTaskType();
     public abstract String getDueDate();
@@ -24,6 +24,10 @@ public abstract class Task {
 
     public void setDone () {
         this.isDone = true;
+    }
+
+    public boolean getIsDone() {
+        return isDone;
     }
 
     public String printTask() {

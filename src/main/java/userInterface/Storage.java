@@ -90,12 +90,12 @@ public class Storage {
         FileWriter fw = new FileWriter(filename);
         String textToWrite = "";
         for (Task item : tasks) {
-            String doneIndex = (item.isDone) ? "1" : "0";
+            String doneIndex = (item.getIsDone()) ? "1" : "0";
             if (item.getTaskType().equals("T")) {
-                textToWrite += "T | " + doneIndex + " | " + item.task + "\n";
+                textToWrite += "T | " + doneIndex + " | " + item.getTask() + "\n";
             } else {
                 //Deadline and Event class objects have due dates
-                textToWrite += item.getTaskType() + " | " + doneIndex + " | "+ item.task + " | " + item.getDueDate() + "\n";
+                textToWrite += item.getTaskType() + " | " + doneIndex + " | "+ item.getTask() + " | " + item.getDueDate() + "\n";
             }
         }
         fw.write(textToWrite);
