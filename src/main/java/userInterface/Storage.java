@@ -47,11 +47,12 @@ public class Storage {
             taskType = items[0];
             isDoneValue = items[1];
             taskDescription = items[2];
-            if (items.length == 4) {
+            int numberOfTaskProperties = items.length;
+
+            if (numberOfTaskProperties == 4) {
                 //Only Deadline and Event objects have due date
                 dueDate = items[3];
             }
-
             switch (taskType) {
             case "T":
                 Todo todo = new Todo("todo " + taskDescription);
@@ -74,7 +75,6 @@ public class Storage {
                 }
                 tasks.add(event);
                 break;
-            default:
             }
         }
     }

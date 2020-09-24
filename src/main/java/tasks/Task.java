@@ -13,9 +13,9 @@ public abstract class Task {
     public abstract String getTaskType();
     public abstract String getDueDate();
 
-    public Task (String x) {
-        this.task = x;
-        this.isDone = false;
+    public Task (String userInput) {
+        task = userInput;
+        isDone = false;
     }
 
     public String getTask() {

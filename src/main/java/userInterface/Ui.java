@@ -172,7 +172,7 @@ public class Ui {
         switch (words[0].toLowerCase()) {
         case "done":
             words = taskFormat.checkDone();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 int index = Integer.parseInt(words[1]);
                 markDone(index, tasks);
             } else {
@@ -181,7 +181,7 @@ public class Ui {
             break;
         case "find":
             taskFormat.checkFind();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 findTasks(tasks, task.substring(5));
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of find cannot be empty.");
@@ -189,7 +189,7 @@ public class Ui {
             break;
         case "printbydate":
             taskFormat.checkPrintByDate();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 printByDate(tasks, task.substring(12));
             } else {
                 throw new TaskFormatException("\u2639 OOPS!!! The description of printbydate cannot be empty");
@@ -197,7 +197,7 @@ public class Ui {
             break;
         case "delete":
             words = taskFormat.checkDelete();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 int index = Integer.parseInt(words[1]);
                 deleteTask(index, tasks);
             } else {
@@ -206,7 +206,7 @@ public class Ui {
             break;
         case "event":
             words = taskFormat.checkEvent();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 tasks.add(new Event(words[0], words[1]));
                 addedTask(tasks);
             } else {
@@ -215,7 +215,7 @@ public class Ui {
             break;
         case "deadline":
             words = taskFormat.checkDeadline();
-            if (taskFormat.isValid) {
+            if (taskFormat.getIsValid()) {
                 tasks.add(new Deadline(words[0], words[1]));
                 addedTask(tasks);
             } else {

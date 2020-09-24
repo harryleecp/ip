@@ -9,8 +9,8 @@ package formats;
  */
 public class Validity {
     private String description;
-    public String[] words;
-    public boolean isValid;
+    private String[] words;
+    private boolean isValid;
 
     public Validity(String description) {
         this.description = description;
@@ -22,6 +22,9 @@ public class Validity {
         words = description.split(" ");
     }
 
+    public boolean getIsValid() {
+        return isValid;
+    }
     /**
      * Verifies the format of the 'done' command.
      * Returns the split string containing the command and index if correct.
