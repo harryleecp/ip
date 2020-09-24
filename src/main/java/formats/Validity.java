@@ -51,6 +51,7 @@ public class Validity {
             isValid = false;
         }
         try {
+            //Users might accidentally enter a non-numeric character after 'delete' command
             int index = Integer.parseInt(words[1]);
         } catch(NumberFormatException | ArrayIndexOutOfBoundsException e) {
             isValid = false;
