@@ -2,6 +2,7 @@
 
 ## Features 
 The following is a summarized table of features for Duke.
+
 | Name of feature | Description of feature |
 | --------------- | ---------------------- |
 | List            | Displays all added tasks |
@@ -30,6 +31,7 @@ File tasklist.txt is not found, creating new file.......
 
 ### Adding a task into your list
 There are 3 types of tasks namely `todo`, `deadline` and `event`. The following table demonstrates how you can utilize these commands.
+
 | Task type | Entry format | Example of entry |
 | --------- | ------------ | ---------------- |
 | Todo      | `todo` _[Task description]_ | `todo Read coding tutorial` |
